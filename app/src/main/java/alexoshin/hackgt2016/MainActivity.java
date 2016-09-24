@@ -55,6 +55,7 @@ import com.google.api.client.util.DateTime;
 import com.google.api.client.util.ExponentialBackOff;
 import com.google.api.services.calendar.CalendarScopes;
 import com.google.api.services.calendar.model.Event;
+import com.google.api.services.calendar.model.EventDateTime;
 import com.google.api.services.calendar.model.Events;
 
 import java.io.IOException;
@@ -175,11 +176,18 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
     }
 
     public void assignmentCreation(View v) {
-        Event event = new Event();
+
     }
 
     public void eventCreation(View v) {
-
+        //dummy code, example Event
+        String input1 = "Summary";
+        String input2 = "Location";
+        String input3 = "Description";
+        DateTime input4Start = new DateTime("2017-05-28T17:00:00-07:00");
+        Event event = new Event().setSummary(input1).setLocation(input2).setDescription(input3);
+        EventDateTime start = new EventDateTime().setDateTime(input4Start).setTimeZone("America/New York");
+        event.setStart(start);
     }
 
     public void testButton(View v) {
