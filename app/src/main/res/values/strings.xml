@@ -2,4 +2,5 @@
     <string name="app_name">HackGT2016</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="sans_serif" translatable="false">sans-serif</string>
 </resources>

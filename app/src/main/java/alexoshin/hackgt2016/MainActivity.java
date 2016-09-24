@@ -18,8 +18,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.TextView;
+import android.util.Log;
 
-public class MainActivity extends AppCompatActivity {
+import alexoshin.hackgt2016.DayPickerView;
+import alexoshin.hackgt2016.SimpleMonthAdapter;
+
+public class MainActivity extends AppCompatActivity implements alexoshin.hackgt2016.DatePickerController {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -35,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+
+    private DayPickerView dayPickerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
         final PagerAdapter adapter = new PagerAdapter
                 (getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
+        DayPickerView dayPickerView = (DayPickerView) findViewById(R.id.pickerView);
+        dayPickerView.setController(this);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -73,16 +81,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
-        //mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-
-        // Set up the ViewPager with the sections adapter.
-        //mViewPager = (ViewPager) findViewById(R.id.container);
-        //mViewPager.setAdapter(mSectionsPagerAdapter);
-
-        //TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        //tabLayout.setupWithViewPager(mViewPager);
     }
 
 
@@ -179,4 +177,23 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
     }
+    @Override
+    public int getMaxYear()
+    {
+        return 2015;
+    }
+
+    @Override
+    public void onDayOfMonthSelected(int year, int month, int day)
+    {
+        Log.e("Day Selected", day + " / " + month + " / " + year);
+    }
+
+    @Override
+    public void onDateRangeSelected(SimpleMonthAdapter.SelectedDays<SimpleMonthAdapter.CalendarDay> selectedDays)
+    {
+
+        Log.e("Date range selected", selectedDays.getFirst().toString() + " --> " + selectedDays.getLast().toString());
+    }
+
 }
