@@ -51,7 +51,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       views: {
         
       '': {
-        templateUrl: 'templates/chats.html',
+        templateUrl: 'templates/agenda.html',
         controller: 'chats1Ctrl'
       }
       }
@@ -62,11 +62,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       url: '/chats',
       views: {
         '': {
-          templateUrl: 'templates/tab-chats.html',
+          templateUrl: 'templates/tabs.html',
           controller: 'ChatsCtrl'
         },
 		'b': {
-        templateUrl: 'templates/chats.html',
+        templateUrl: 'templates/agenda.html',
         controller: 'chats1Ctrl'
       }
       }

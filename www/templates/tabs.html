@@ -1,24 +1,33 @@
-<!--
-Create tabs with an icon and label, using the tabs-positive style.
-Each tab's child <ion-nav-view> directive will have its own
-navigation history that also transitions its views in and out.
--->
-<ion-tabs class="tabs-icon-top tabs-color-active-positive">
+<style>
+.slider-slide-tab  span:last-child
+{border-radius: 10px;
+background:#ef473a;padding: 3px 8px;
+		color: white;
+		position: relative;
+		bottom: 8px;
+		left: 5px;    font-weight: bold;box-shadow:0 0 1px #333;
+}
 
-  <!-- Dashboard Tab -->
-  <ion-tab title="Status" icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" href="#/tab/dash">
-    <ion-nav-view name="tab-dash"></ion-nav-view>
-  </ion-tab>
+    .scrollmenu.scroll-view.scroll-x {
+    overflow-x: hidden;  /* default value is 'scroll' */
+}
+</style>
+ <div class="bar bar-header bar-dark" style="height: 80px;">
+  <br></br>
+</div>
+   <ion-view view-title="Sliding Tabs 1" style="margin-top: 80px;">
 
-  <!-- Chats Tab -->
-  <ion-tab title="Chats" icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes" href="#/tab/chats">
-    <ion-nav-view name="tab-chats"></ion-nav-view>
-  </ion-tab>
-
-  <!-- Account Tab -->
-  <ion-tab title="Account" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/tab/account">
-    <ion-nav-view name="tab-account"></ion-nav-view>
-  </ion-tab>
-
-
-</ion-tabs>
+        <ion-content scroll="false">
+		<button class="button button-light">
+  button-light
+</button>
+		 <ion-slide-box slide-tabs-scrollable="true"  show-pager="false" ion-slide-tabs>
+                <ion-slide ion-slide-tab-label="Calendar<span>2</span>"><div ng-include src="'templates/agenda.html'"></div><h1>Tab 2</h1><button ng-click="nextSlide()">Next slide!</button></ion-slide>
+                <ion-slide ion-slide-tab-label="Schedule"></ion-slide>
+                <ion-slide ion-slide-tab-label="Agenda"><h1>Tab 3</h1><button ng-click="nextSlide()" >Next slide!</button></ion-slide>
+                <ion-slide ion-slide-tab-label="Settings"><h1>Tab 4</h1><button ng-click="nextSlide()">Next slide!</button></ion-slide>
+                <ion-slide ion-slide-tab-label="Tab 5"><h1>Tab 5</h1><button ng-click="nextSlide()">Next slide!</button></ion-slide>
+                <ion-slide ion-slide-tab-label="Tab 6"><h1>Tab 6</h1><button ng-click="nextSlide()">Next slide!</button></ion-slide>
+            </ion-slide-box>
+        </ion-content>
+    </ion-view>
