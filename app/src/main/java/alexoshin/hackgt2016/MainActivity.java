@@ -23,7 +23,7 @@ import android.util.Log;
 import alexoshin.hackgt2016.DayPickerView;
 import alexoshin.hackgt2016.SimpleMonthAdapter;
 
-public class MainActivity extends AppCompatActivity implements alexoshin.hackgt2016.DatePickerController {
+public class MainActivity extends AppCompatActivity  {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -61,8 +61,7 @@ public class MainActivity extends AppCompatActivity implements alexoshin.hackgt2
         final PagerAdapter adapter = new PagerAdapter
                 (getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
-        DayPickerView dayPickerView = (DayPickerView) findViewById(R.id.pickerView);
-        dayPickerView.setController(this);
+
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -176,24 +175,6 @@ public class MainActivity extends AppCompatActivity implements alexoshin.hackgt2
             }
             return null;
         }
-    }
-    @Override
-    public int getMaxYear()
-    {
-        return 2015;
-    }
-
-    @Override
-    public void onDayOfMonthSelected(int year, int month, int day)
-    {
-        Log.e("Day Selected", day + " / " + month + " / " + year);
-    }
-
-    @Override
-    public void onDateRangeSelected(SimpleMonthAdapter.SelectedDays<SimpleMonthAdapter.CalendarDay> selectedDays)
-    {
-
-        Log.e("Date range selected", selectedDays.getFirst().toString() + " --> " + selectedDays.getLast().toString());
     }
 
 }
