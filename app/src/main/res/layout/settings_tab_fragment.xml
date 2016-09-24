@@ -10,22 +10,17 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="Settings"
-        android:textAppearance="?android:attr/textAppearanceLarge"/>
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:translationY="-200dp" />
 
     <Button
-        android:text="Button"
+        android:text="Sign in with Google"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="94dp"
         android:id="@+id/apibutton"
-        android:layout_alignParentTop="true"
+        android:onClick="testButton"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:onClick="testButton" />
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView" />
+        android:layout_marginBottom="62dp" />
 
 </RelativeLayout>
