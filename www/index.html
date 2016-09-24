@@ -146,20 +146,12 @@
     <!--
       The nav bar that will be updated as we navigate between views.
     -->
-	
     <ion-nav-bar class="bar-stable">
       <ion-nav-back-button>
       </ion-nav-back-button>
     </ion-nav-bar>
 	
-	<div id="authorize-div" style="display: none">
-      <!--<span>Authorize access to Google Calendar API</span>
-      <!--Button for the user to click to initiate auth sequence --
-      <button id="authorize-button" onclick="handleAuthClick(event)">
-        Authorize
-      </button>
-	  -->
-    </div>
+	<div id="authorize-div" style="display: none"></div>
 	
 	<script type="text/javascript">
 	if(!DONE) {
@@ -168,7 +160,6 @@
 		}
 		handleAuthClick(event);
 		loadCalendarApi();
-		//r = false;
 	}
 	</script>
 	 
