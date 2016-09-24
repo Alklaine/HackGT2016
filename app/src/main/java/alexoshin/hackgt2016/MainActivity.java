@@ -3,6 +3,7 @@ package alexoshin.hackgt2016;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -22,6 +23,7 @@ import android.util.Log;
 
 import alexoshin.hackgt2016.DayPickerView;
 import alexoshin.hackgt2016.SimpleMonthAdapter;
+import alexoshin.hackgt2016.TabSwipeActivity;
 
 public class MainActivity extends AppCompatActivity  {
 
@@ -51,10 +53,10 @@ public class MainActivity extends AppCompatActivity  {
         setSupportActionBar(toolbar);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText("Calendar"));
-        tabLayout.addTab(tabLayout.newTab().setText("Schedule"));
-        tabLayout.addTab(tabLayout.newTab().setText("Agenda"));
-        tabLayout.addTab(tabLayout.newTab().setText("Settings"));
+        tabLayout.addTab(tabLayout.newTab().setText("Calendar"), 0, true);
+        tabLayout.addTab(tabLayout.newTab().setText("Schedule"), 1);
+        tabLayout.addTab(tabLayout.newTab().setText("Agenda"), 2);
+        tabLayout.addTab(tabLayout.newTab().setText("Settings"), 3);
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
@@ -63,10 +65,12 @@ public class MainActivity extends AppCompatActivity  {
         viewPager.setAdapter(adapter);
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager) {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
+                //tabLayout
+                //adapter.getItem(tab.getPosition());
             }
 
             @Override
@@ -159,8 +163,8 @@ public class MainActivity extends AppCompatActivity  {
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 3;
+            // Show 4 total pages.
+            return 4;
         }
 
         @Override
@@ -172,6 +176,8 @@ public class MainActivity extends AppCompatActivity  {
                     return "SECTION 2";
                 case 2:
                     return "SECTION 3";
+                case 3:
+                    return "SECTION 4";
             }
             return null;
         }
