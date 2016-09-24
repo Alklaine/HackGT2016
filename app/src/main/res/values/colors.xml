@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#A8A7A8</color>
-    <color name="colorPrimaryDark">#363636</color>
-    <color name="colorAccent">#474747</color>
-    <color name="normal_day">#ff999999</color>
-    <color name="selected_day_background">#E75F49</color>
-    <color name="selected_day_text">#fff2f2f2</color>
+    <color name="colorPrimary">#6C5B7B</color>
+    <color name="colorPrimaryDark">#355C7D</color>
+    <color name="colorAccent">#f67280</color>
+    <color name="normal_day">#ffffff</color>
+    <color name="selected_day_background">#C06C84</color>
+    <color name="selected_day_text">#ffffff</color>
+    <color name="selected_dat_text">#F8B195</color>
+
 </resources>
