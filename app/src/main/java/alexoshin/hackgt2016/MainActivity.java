@@ -170,6 +170,18 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
 
     }
 
+    public void creationList(View v) {
+
+    }
+
+    public void assignmentCreation(View v) {
+        Event event = new Event();
+    }
+
+    public void eventCreation(View v) {
+
+    }
+
     public void testButton(View v) {
         mCallApiButton.setEnabled(false);
         mOutputText.setText("");
@@ -435,6 +447,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
             System.out.println(eventStrings);
             return eventStrings;
         }
+
 
 
         @Override
