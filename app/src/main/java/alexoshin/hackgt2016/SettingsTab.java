@@ -19,6 +19,7 @@ import com.google.api.services.calendar.CalendarScopes;
 import com.google.api.client.util.DateTime;
 
 import com.google.api.services.calendar.model.*;
+import com.google.api.services.calendar.model.Event;
 
 import android.Manifest;
 import android.accounts.AccountManager;

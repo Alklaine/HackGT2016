@@ -6,7 +6,7 @@ package alexoshin.hackgt2016;
 
 public class Assignment {
     private String name;
-    private Time time;
+    private Time dueDate;
 
     public String getName() {
         return name;
@@ -14,10 +14,10 @@ public class Assignment {
     public void setName(String name) {
         this.name = name;
     }
-    public Time getTime() {
-        return time;
+    public Time getDueDate() {
+        return dueDate;
     }
-    public void setTime(Time time) {
-        this.time = time;
+    public void setDueDate(Time dueDate) {
+        this.dueDate = dueDate;
     }
 }

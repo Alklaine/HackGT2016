@@ -7,12 +7,14 @@ import java.util.Date;
 public class Event {
     private String name;
     private String loc;
-    private Time time;
+    private Time startTime;
+    private Time endTime;
 
-    public Event(String name, String loc, Time time) {
+    public Event(String name, String loc, Time startTime, Time endTime) {
         this.name = name;
         this.loc = loc;
-        this.time = time;
+        this.startTime = startTime;
+        this.endTime = endTime;
     }
 
     public String getName() {
@@ -27,28 +29,16 @@ public class Event {
     public void setLocation(String loc) {
         this.loc = loc;
     }
-    public Time getTime() {
-        return time;
+    public Time getStartTime() {
+        return startTime;
     }
-    public void setTime(Time time) {
-        this.time = time;
+    public void setStartTime(Time startTime) {
+        this.startTime = startTime;
     }
-    public Date getDate() {
-        return time.getDate();
+    public Time getEndTime() {
+        return endTime;
     }
-    public void setDate(Date date) {
-        time.setDate(date);
-    }
-    public int getHour() {
-        return time.getHour();
-    }
-    public void setHour(int hour) {
-        time.setHour(hour);
-    }
-    public int getMin() {
-        return time.getMin();
-    }
-    public void setMin(int min) {
-        time.setMin(min);
+    public void setEndTime(Time endTime) {
+        this.endTime = endTime;
     }
 }
