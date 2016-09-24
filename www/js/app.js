@@ -20,6 +20,21 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+	document.addEventListener("deviceready", function onDeviceReady(w) {
+    // Should work on Andriod
+    if(StatusBar && statusbarTransparent) {
+        // Enable translucent statusbar
+        statusbarTransparent.enable();
+
+        // Get the bar back
+        StatusBar.show();
+    }
+    // iOS only
+    else if (StatusBar) {
+        // Get the bar back
+        StatusBar.show();
+    }
+}, false);
   });
 })
 
@@ -31,55 +46,34 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   // Each state's controller can be found in controllers.js
   $stateProvider
 
-  // setup an abstract state for the tabs directive
-    .state('tab', {
-    url: '/tab',
-    abstract: true,
-    templateUrl: 'templates/tabs.html'
-  })
-
-  // Each tab has its own nav history stack:
-
-  .state('tab.dash', {
-    url: '/dash',
-    views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
+  .state('chatsu', {
+      url: '/chatsu',
+      views: {
+        
+      '': {
+        templateUrl: 'templates/chats.html',
+        controller: 'chats1Ctrl'
       }
-    }
+      }
+   
   })
 
-  .state('tab.chats', {
+  .state('chats', {
       url: '/chats',
       views: {
-        'tab-chats': {
+        '': {
           templateUrl: 'templates/tab-chats.html',
           controller: 'ChatsCtrl'
-        }
+        },
+		'b': {
+        templateUrl: 'templates/chats.html',
+        controller: 'chats1Ctrl'
       }
-    })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
-        }
       }
-    })
-
-  .state('tab.account', {
-    url: '/account',
-    views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
-      }
-    }
+   
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/chats');
 
 });

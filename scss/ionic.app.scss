@@ -21,3 +21,38 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+
+.tab-content {
+    display: block;
+    opacity: 0;
+    @include transition-property('left, right');
+    @include transition-duration(.3s);
+}
+
+$tabs-count: 5;
+
+@for $i from 0 through $tabs-count {
+    @for $j from 0 through $tabs-count {
+        .active-tab-#{$i} {
+            @if $i == $j {
+                .nav-tab-#{$j} {
+                    opacity: 1;
+                    left: 0 !important;
+                    right: 0 !important;
+                }
+            }
+            @if $i > $j {
+                .nav-tab-#{$j} {
+                    left: -100%;
+                    right: 100%;
+                }
+            }
+            @if $i < $j {
+                .nav-tab-#{$j} {
+                    left: 100%;
+                    right: -100%;
+                }
+            }
+        }
+    }
+}
