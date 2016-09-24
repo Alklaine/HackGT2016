@@ -1,16 +1,33 @@
-<ion-view view-title="Chats">
-  <ion-content>
-    <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
-        <img ng-src="{{chat.face}}">
-        <h2>{{chat.name}}</h2>
-        <p>{{chat.lastText}}</p>
-        <i class="icon ion-chevron-right icon-accessory"></i>
+<style>
+.slider-slide-tab  span:last-child
+{border-radius: 10px;
+background:#ef473a;padding: 3px 8px;
+		color: white;
+		position: relative;
+		bottom: 8px;
+		left: 5px;    font-weight: bold;box-shadow:0 0 1px #333;
+}
 
-        <ion-option-button class="button-assertive" ng-click="remove(chat)">
-          Delete
-        </ion-option-button>
-      </ion-item>
-    </ion-list>
-  </ion-content>
-</ion-view>
+    .scrollmenu.scroll-view.scroll-x {
+    overflow-x: hidden;  /* default value is 'scroll' */
+}
+</style>
+ <div class="bar bar-header bar-dark" style="height: 80px;">
+  <br></br>
+</div>
+   <ion-view view-title="Sliding Tabs 1" style="margin-top: 80px;">
+
+        <ion-content scroll="false">
+		<button class="button button-light">
+  button-light
+</button>
+		 <ion-slide-box slide-tabs-scrollable="true"  show-pager="false" ion-slide-tabs>
+                <ion-slide ion-slide-tab-label="Tab 1"><div ng-include src="'templates/chats.html'" style="height: {{Height}}px;"></div></ion-slide>
+                <ion-slide ion-slide-tab-label="Tab 2<span>2</span>"><h1>Tab 2</h1><button ng-click="nextSlide()">Next slide!</button></ion-slide>
+                <ion-slide ion-slide-tab-label="Tab 3"><h1>Tab 3</h1><button ng-click="nextSlide()" >Next slide!</button></ion-slide>
+                <ion-slide ion-slide-tab-label="Tab 4"><h1>Tab 4</h1><button ng-click="nextSlide()">Next slide!</button></ion-slide>
+                <ion-slide ion-slide-tab-label="Tab 5"><h1>Tab 5</h1><button ng-click="nextSlide()">Next slide!</button></ion-slide>
+                <ion-slide ion-slide-tab-label="tab6"><h1>Tab 6</h1><button ng-click="nextSlide()">Next slide!</button></ion-slide>
+            </ion-slide-box>
+        </ion-content>
+    </ion-view>
