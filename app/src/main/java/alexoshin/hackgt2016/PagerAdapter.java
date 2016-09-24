@@ -1,5 +1,6 @@
 package alexoshin.hackgt2016;
 
+import android.app.Activity;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -10,6 +11,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
     int mNumOfTabs;
+    //Activity activityObj;
 
     public PagerAdapter(FragmentManager fm, int NumOfTabs) {
         super(fm);
