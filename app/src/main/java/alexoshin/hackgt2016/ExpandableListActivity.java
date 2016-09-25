@@ -21,7 +21,7 @@ public class ExpandableListActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.schedule_tab_fragment);
 
-        listView = (ListView) findViewById(R.id.expandableList);
+        //listView = (ListView) findViewById(R.id.expandable_List);
         String[] values = new String[] {"Test1", "Test2"};
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
                                             android.R.id.text1, values);
