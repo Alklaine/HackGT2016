@@ -4,13 +4,13 @@ import java.util.Date;
 /**
  * Created by alexo on 9/24/2016.
  */
-public class Event {
+public class CustomEvent {
     private String name;
     private String loc;
     private Time startTime;
     private Time endTime;
 
-    public Event(String name, String loc, Time startTime, Time endTime) {
+    public CustomEvent(String name, String loc, Time startTime, Time endTime) {
         this.name = name;
         this.loc = loc;
         this.startTime = startTime;

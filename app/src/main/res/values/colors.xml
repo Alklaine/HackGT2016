@@ -7,5 +7,6 @@
     <color name="selected_day_background">#C06C84</color>
     <color name="selected_day_text">#ffffff</color>
     <color name="selected_dat_text">#F8B195</color>
+    <color name="googleBlue">#2196F3</color>
 
 </resources>

@@ -2,6 +2,7 @@ package alexoshin.hackgt2016;
 
 import android.Manifest;
 import android.accounts.AccountManager;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -94,10 +95,14 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
         setSupportActionBar(toolbar);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText("Calendar"), 0, true);
-        tabLayout.addTab(tabLayout.newTab().setText("Schedule"), 1);
-        tabLayout.addTab(tabLayout.newTab().setText("Agenda"), 2);
-        tabLayout.addTab(tabLayout.newTab().setText("Settings"), 3);
+        String mDrawableName = "calendar";
+        String nDrawableName = "agenda";
+        String oDrawableName = "settings";
+        String pDrawableName = "ic_action_name";
+        tabLayout.addTab(tabLayout.newTab().setIcon(getResources().getIdentifier(mDrawableName , "drawable", getPackageName())).setText(""), 0, true);
+        tabLayout.addTab(tabLayout.newTab().setIcon(getResources().getIdentifier(nDrawableName , "drawable", getPackageName())).setText(""), 1);
+        tabLayout.addTab(tabLayout.newTab().setIcon(getResources().getIdentifier(pDrawableName , "drawable", getPackageName())).setText(""), 2);
+        tabLayout.addTab(tabLayout.newTab().setIcon(getResources().getIdentifier(oDrawableName , "drawable", getPackageName())).setText(""), 3);
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
