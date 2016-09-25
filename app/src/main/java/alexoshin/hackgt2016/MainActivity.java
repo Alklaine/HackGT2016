@@ -54,8 +54,10 @@ import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.util.DateTime;
 import com.google.api.client.util.ExponentialBackOff;
+import com.google.api.services.calendar.Calendar;
 import com.google.api.services.calendar.CalendarScopes;
 import com.google.api.services.calendar.model.Event;
+import com.google.api.services.calendar.model.EventDateTime;
 import com.google.api.services.calendar.model.Events;
 
 import java.io.IOException;
@@ -78,6 +80,8 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
     private static final String BUTTON_TEXT = "Call Google Calendar API";
     private static final String PREF_ACCOUNT_NAME = "accountName";
     private static final String[] SCOPES = { CalendarScopes.CALENDAR_READONLY };
+
+    public static List<String> publicEvents;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -180,11 +184,24 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
     }
 
     public void assignmentCreation(View v) {
-        Event event = new Event();
+
     }
 
-    public void eventCreation(View v) {
+    public void eventCreation(View v) throws IOException {
+        //dummy code, example Event
+        String input1 = "Summary";
+        String input2 = "Location";
+        String input3 = "Description";
+        DateTime input4Start = new DateTime("2017-05-28T17:00:00-07:00");
+        Event event = new Event().setSummary(input1).setLocation(input2).setDescription(input3);
+        EventDateTime start = new EventDateTime().setDateTime(input4Start).setTimeZone("America/New York");
+        event.setStart(start);
 
+        //event is now ready to be passed into Google Servers, and we ourselves can take what we want to store from the object and create a CustomEvent for local storage.
+        if(isGooglePlayServicesAvailable()) {
+            event = new MakeRequestTask(mCredential).mService.events().insert("primary", event).execute();
+            System.out.println(event + "created!");
+        }
     }
 
     public void testButton(View v) {
@@ -449,12 +466,12 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
                 eventStrings.add(
                         String.format("%s (%s)", event.getSummary(), start));
             }
+            //we have a list, now what to do with it?
             System.out.println(eventStrings);
+            publicEvents = eventStrings;
             return eventStrings;
         }
-
-
-
+        
         @Override
         protected void onPreExecute() {
             mOutputText.setText("");

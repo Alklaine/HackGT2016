@@ -196,7 +196,11 @@ class SimpleMonthView extends View
         int day = 1;
 
         while (day <= mNumCells) {
+            //here---->
             int x = paddingDay * (1 + dayOffset * 2) + mPadding;
+            if(true) {
+
+            }
             if ((mMonth == mSelectedBeginMonth && mSelectedBeginDay == day && mSelectedBeginYear == mYear) || (mMonth == mSelectedLastMonth && mSelectedLastDay == day && mSelectedLastYear == mYear)) {
                 if (mDrawRect)
                 {
