@@ -471,7 +471,9 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
             publicEvents = eventStrings;
             return eventStrings;
         }
+
         
+
         @Override
         protected void onPreExecute() {
             mOutputText.setText("");
